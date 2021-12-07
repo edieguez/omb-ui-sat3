@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  ui:
+    build: .
+    ports:
+      - "9000:80"
+  mockapi:
+    build:
+      dockerfile: Dockerfile
+      context: ./src/mock-api
+    ports:
+      - "7000:7000"
