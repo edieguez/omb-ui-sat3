@@ -16,4 +16,9 @@ export class AccountsService {
   getAccountList(): Observable<Account[]> {
     return this.http.get<Account[]>(`${this.outerUrl}/accounts`);
   }
+
+  // TODO: CHANGE TYPE ANY TO SPECIFIC
+  postAccount(account: any): Observable<Account[]> {
+    return this.http.post<Account[]>(`${this.outerUrl}/accounts`, account);
+  }
 }

@@ -1,0 +1,1 @@
+export const ACCOUNT_TYPES = ['CHECKING', 'SAVINGS', 'MONEY_MARKET'];

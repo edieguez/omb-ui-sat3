@@ -11,3 +11,24 @@ table {
     margin-right: 2rem;
   }
 }
+
+.wrapper {
+  width: 100%;
+  height: calc(100vh - 325px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .no-account-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #cacaca;
+  }
+
+  .wallet {
+    max-width: 250px;
+    height: auto;
+    opacity: 0.2;
+  }
+}

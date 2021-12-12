@@ -1,29 +1,33 @@
 <h1>Welcome to OMB</h1>
 
 <div class="content">
+  <div class="wrapper" *ngIf="accounts.length === 0; else elseBlock">
+    <img class="wallet" src="assets/img/wallet.svg" alt="no-accounts" />
+    <span class="no-account-text">There are not accounts</span>
+  </div>
 
-	<section>
+  <ng-template #elseBlock>
+    <section>
+      <p>This is a list of all your accounts:</p>
 
-		<p>This is a list of all your accounts:</p>
+      <table mat-table [dataSource]="accounts" class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let account">{{ account.id }}</td>
+        </ng-container>
 
-		<table mat-table [dataSource]="accounts" class="mat-elevation-z8">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let account">{{ account.name }}</td>
+        </ng-container>
 
-			<ng-container matColumnDef="id">
-				<th mat-header-cell *matHeaderCellDef>ID</th>
-				<td mat-cell *matCellDef="let account">{{account.id}}</td>
-			</ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </section>
 
-			<ng-container matColumnDef="name">
-				<th mat-header-cell *matHeaderCellDef>Name</th>
-				<td mat-cell *matCellDef="let account">{{account.name}}</td>
-			</ng-container>
-
-			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-			<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-		</table>
-	</section>
-
-	<section>
-		<omb-deposit [accounts]="accounts"></omb-deposit>
-	</section>
+    <section>
+      <omb-deposit [accounts]="accounts"></omb-deposit>
+    </section>
+  </ng-template>
 </div>
