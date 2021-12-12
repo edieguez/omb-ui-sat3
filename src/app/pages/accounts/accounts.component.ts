@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Account } from './accounts.model';
-import { AccountsService } from './accounts.service';
+import { Account } from '../../shared/models/accounts.model';
+import { AccountsService } from '../../shared/services/account/accounts.service';
 
 @Component({
   selector: 'omb-accounts',

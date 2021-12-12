@@ -13,11 +13,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgHttpLoaderModule } from 'ng-http-loader';
 
-import { AccountsComponent } from './accounts/accounts.component';
+import { AccountsComponent } from './pages/accounts/accounts.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DepositComponent } from './deposit/deposit.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
+import { TopBarComponent } from './shared/components/top-bar/top-bar.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { NewAccountComponent } from './pages/new-account/new-account.component';
 

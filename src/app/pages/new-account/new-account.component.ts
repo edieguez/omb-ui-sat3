@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import * as moment from 'moment';
 
-import { ACCOUNT_TYPES } from '../../constants/account-types';
-import { AccountsService } from '../../accounts/accounts.service'; // TODO: CHANGE THIS PATH
+import { ACCOUNT_TYPES } from '../../shared/constants/account-types';
+import { AccountsService } from '../../shared/services/account/accounts.service';
 
 // jasmine / karma
 @Component({

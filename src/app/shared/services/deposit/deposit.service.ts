@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { environment } from '../../environments/environment';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class DepositService {
@@ -13,7 +13,12 @@ export class DepositService {
   }
 
   deposit(accountId: string, amount: number): Observable<boolean> {
-    console.log(`depositing ${amount} dollars in account with ID '${accountId}'`);
-    return this.http.post<boolean>(`${this.outerUrl}/accounts/${accountId}/deposit`, { amount });
+    console.log(
+      `depositing ${amount} dollars in account with ID '${accountId}'`
+    );
+    return this.http.post<boolean>(
+      `${this.outerUrl}/accounts/${accountId}/deposit`,
+      { amount }
+    );
   }
 }
