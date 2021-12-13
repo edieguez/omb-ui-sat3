@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import * as moment from 'moment';
+import { Router } from '@angular/router';
 
-import { ACCOUNT_TYPES } from '../../shared/constants/account-types';
-import { AccountsService } from '../../shared/services/account/accounts.service';
+import { ACCOUNT_TYPES } from '../../../shared/constants/account-types';
+import { AccountsService } from '../../../shared/services/account/accounts.service';
 
 // jasmine / karma
 @Component({
@@ -12,7 +13,10 @@ import { AccountsService } from '../../shared/services/account/accounts.service'
   styleUrls: ['./new-account.component.scss'],
 })
 export class NewAccountComponent implements OnInit {
-  constructor(private readonly accountService: AccountsService) {}
+  constructor(
+    private readonly accountService: AccountsService,
+    private router: Router
+  ) {}
 
   accountTypes: Array<string> = ACCOUNT_TYPES;
 
@@ -37,5 +41,9 @@ export class NewAccountComponent implements OnInit {
     this.accountService.postAccount(acccount).subscribe((response) => {
       console.log(response);
     });
+  }
+
+  onCancel() {
+    this.router.navigate(['/']);
   }
 }

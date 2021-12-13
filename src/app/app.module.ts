@@ -9,6 +9,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgHttpLoaderModule } from 'ng-http-loader';
@@ -19,7 +20,7 @@ import { AppComponent } from './app.component';
 import { DepositComponent } from './deposit/deposit.component';
 import { TopBarComponent } from './shared/components/top-bar/top-bar.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { NewAccountComponent } from './pages/new-account/new-account.component';
+import { NewAccountComponent } from './pages/accounts/new-account/new-account.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { NewAccountComponent } from './pages/new-account/new-account.component';
     MatSelectModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    MatCardModule,
     // other modules
     NgHttpLoaderModule.forRoot(),
   ],

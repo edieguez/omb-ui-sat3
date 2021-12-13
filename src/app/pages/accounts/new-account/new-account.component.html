@@ -1,5 +1,10 @@
-<h1>Create an account</h1>
-<form [formGroup]="accountForm" (submit)="onSubmit()" class="form">
+<h1 class="animate__animated animate__fadeInLeft">Create account</h1>
+
+<form
+  class="form animate__animated animate__fadeInLeft"
+  [formGroup]="accountForm"
+  (submit)="onSubmit()"
+>
   <mat-form-field class="input" appearance="fill">
     <mat-label>Account type</mat-label>
     <mat-select formControlName="accountType">
@@ -35,3 +40,10 @@
     Create account
   </button>
 </form>
+<button
+  class="form cancel-btn animate__animated animate__fadeInLeft"
+  mat-raised-button
+  (click)="onCancel()"
+>
+  Cancel
+</button>

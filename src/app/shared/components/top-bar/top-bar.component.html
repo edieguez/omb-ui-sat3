@@ -1,15 +1,24 @@
-<mat-toolbar color="primary">
-  <img class="logo" src="assets/logo.svg" />
+<mat-toolbar>
+  <img
+    class="logo animate__animated animate__fadeInLeft"
+    src="assets/logo.svg"
+  />
 
-  <span class="title">My OMB</span>
+  <span class="title animate__animated animate__fadeInDown">OMB</span>
   <span class="spacer"></span>
-  <button mat-icon-button>
-    <mat-icon>account_balance</mat-icon>
-  </button>
-  <button mat-icon-button>
-    <mat-icon>account_balance_wallet</mat-icon>
-  </button>
-  <button mat-icon-button (click)="onCreateAccount()">
-    <mat-icon>add</mat-icon>
-  </button>
+  <div class="animate__animated animate__fadeIn">
+    <button class="animate__animated animate__fadeInRight" mat-icon-button>
+      <mat-icon>account_balance</mat-icon>
+    </button>
+    <button class="animate__animated animate__fadeInRight" mat-icon-button>
+      <mat-icon>account_balance_wallet</mat-icon>
+    </button>
+    <button
+      class="animate__animated animate__fadeInRight"
+      mat-icon-button
+      (click)="onCreateAccount()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
 </mat-toolbar>

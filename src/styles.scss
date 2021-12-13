@@ -35,12 +35,19 @@ $ohmybank-theme: mat.define-light-theme(
 @include mat.all-component-themes($ohmybank-theme);
 
 /* You can add global styles to this file, and also import other style files */
+@import "~animate.css/animate.css";
 
 html,
 body {
   height: 100%;
 }
 body {
+  display: block;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+  /* avoid padding/margin overflow */
+  box-sizing: border-box;
 }
