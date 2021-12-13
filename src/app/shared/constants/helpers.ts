@@ -1,0 +1,1 @@
+export const ACCOUNT_FORMAT_DATE = "YYYY-MM-DD";

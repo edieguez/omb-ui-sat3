@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { environment } from '../../../../environments/environment';
 import { Account } from '../../../shared/models/accounts.model';
@@ -14,7 +15,14 @@ export class AccountsService {
   }
 
   getAccountList(): Observable<Account[]> {
-    return this.http.get<Account[]>(`${this.outerUrl}/accounts`);
+    return this.http.get<{ data: Account[] }>(`${this.outerUrl}/accounts`).pipe(
+      map((res) => {
+        if (res.data && res.data.length > 0) {
+          return res.data;
+        }
+        return [];
+      })
+    );
   }
 
   // TODO: CHANGE TYPE ANY TO SPECIFIC

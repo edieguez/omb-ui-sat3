@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Account } from '../../shared/models/accounts.model';
-import { AccountsService } from '../../shared/services/account/accounts.service';
+import { Account } from '@app/shared/models/accounts.model';
+import { AccountsService } from '@app/shared/services/account/accounts.service';
 
 @Component({
   selector: 'omb-accounts',
@@ -15,7 +15,7 @@ export class AccountsComponent implements OnInit {
   constructor(private readonly accountsService: AccountsService) {}
 
   ngOnInit(): void {
-    this.accountsService.getAccountList().subscribe((accounts) => {
+    this.accountsService.getAccountList().subscribe((accounts: any) => {
       this.accounts = accounts;
     });
   }

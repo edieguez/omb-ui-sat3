@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as moment from 'moment';
 import { Router } from '@angular/router';
 
-import { ACCOUNT_TYPES } from '../../../shared/constants/account-types';
-import { AccountsService } from '../../../shared/services/account/accounts.service';
+import { ACCOUNT_TYPES } from '@app/shared/constants/account-types';
+import { ACCOUNT_FORMAT_DATE } from '@app/shared/constants/helpers';
+import { AccountsService } from '@app/shared/services/account/accounts.service';
+import { isAdultValidator } from '@app/shared/validators/isAdult/isAdult.directive';
 
 // jasmine / karma
 @Component({
@@ -19,28 +21,49 @@ export class NewAccountComponent implements OnInit {
   ) {}
 
   accountTypes: Array<string> = ACCOUNT_TYPES;
+  submitError: string = '';
 
   accountForm = new FormGroup({
-    name: new FormControl(''),
-    openDate: new FormControl(''),
-    currentBalance: new FormControl(''),
-    accountType: new FormControl(''),
+    accountType: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/(CHECKING|SAVINGS|MONEY_MARKET)/),
+    ]),
+    name: new FormControl('', [Validators.required]),
+    dateOfBirth: new FormControl('', [
+      Validators.required,
+      isAdultValidator('dateOfBirth'),
+    ]),
+    currentBalance: new FormControl(0, [Validators.min(0)]),
+    openDate: new FormControl('', [Validators.required]),
+    accountNumber: new FormControl('', [Validators.required]),
+    routingNumber: new FormControl('', [Validators.required]),
   });
 
   ngOnInit(): void {}
 
   // TODO: agregar el void en las funciones que veas
   onSubmit(): void {
+    if (this.accountForm.invalid) {
+      return;
+    }
     const acccount = {
       ...this.accountForm.value,
-      accountNumber: '100',
-      routingNumber: '100',
-      openDate: moment(this.accountForm.value.openDate).format('YYYY-MM-DD'),
+      openDate: moment(this.accountForm.value.openDate).format(
+        ACCOUNT_FORMAT_DATE
+      ),
+      dateOfBirth: moment(this.accountForm.value.dateOfBirth).format(
+        ACCOUNT_FORMAT_DATE
+      ),
     };
-    console.log('erubiel', JSON.stringify(acccount));
-    this.accountService.postAccount(acccount).subscribe((response) => {
-      console.log(response);
-    });
+    this.accountService.postAccount(acccount).subscribe(
+      () => {
+        this.router.navigate(['/']);
+      },
+      (error: any) => {
+        console.log(error);
+        this.submitError = error.message;
+      }
+    );
   }
 
   onCancel() {
