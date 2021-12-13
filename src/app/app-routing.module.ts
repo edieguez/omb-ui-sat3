@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AccountsComponent } from './pages/accounts/accounts.component';
 import { NewAccountComponent } from './pages/accounts/new-account/new-account.component';
+import { DetailAccountComponent } from './pages/accounts/detail-account/detail-account.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: AccountsComponent },
-  { path: 'create-account', component: NewAccountComponent },
+  { path: 'accounts/create', component: NewAccountComponent },
+  { path: 'accounts/detail/:id', component: DetailAccountComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

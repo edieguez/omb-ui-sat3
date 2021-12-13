@@ -1,0 +1,60 @@
+.account-title {
+  margin-bottom: 0.5rem;
+}
+.account-number {
+  color: #ff9800;
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-top: 0;
+}
+
+.account-subtitle {
+  font-size: 0.75rem;
+  color: #cacaca;
+}
+
+.account-label {
+  color: #ff9800;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.information-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.labels-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.image-content {
+  width: 100%;
+  height: calc(100vh - 325px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .no-account-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #cacaca;
+    margin-top: 1rem;
+  }
+}
+
+.image-responsive {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  filter: grayscale(40%);
+}

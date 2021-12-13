@@ -12,6 +12,10 @@ export class TopBarComponent implements OnInit {
   ngOnInit(): void {}
 
   onCreateAccount() {
-    this.router.navigate(['/create-account']);
+    this.router.navigate(['/accounts/create']);
+  }
+
+  onAccounts() {
+    this.router.navigate(['/']);
   }
 }

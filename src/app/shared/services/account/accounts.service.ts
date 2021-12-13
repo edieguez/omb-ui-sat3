@@ -25,8 +25,17 @@ export class AccountsService {
     );
   }
 
-  // TODO: CHANGE TYPE ANY TO SPECIFIC
-  postAccount(account: any): Observable<Account[]> {
+  postAccount(account: Account): Observable<Account[]> {
     return this.http.post<Account[]>(`${this.outerUrl}/accounts`, account);
+  }
+
+  getAccount(id: string | null): Observable<Account | null> {
+    return this.http
+      .get<{ data: Account | null }>(`${this.outerUrl}/accounts/${id}`)
+      .pipe(
+        map((res) => {
+          return res.data ? res.data : null;
+        })
+      );
   }
 }

@@ -7,10 +7,11 @@
   <span class="title animate__animated animate__fadeInDown">OMB</span>
   <span class="spacer"></span>
   <div class="animate__animated animate__fadeIn">
-    <button class="animate__animated animate__fadeInRight" mat-icon-button>
-      <mat-icon>account_balance</mat-icon>
-    </button>
-    <button class="animate__animated animate__fadeInRight" mat-icon-button>
+    <button
+      class="animate__animated animate__fadeInRight"
+      mat-icon-button
+      (click)="onAccounts()"
+    >
       <mat-icon>account_balance_wallet</mat-icon>
     </button>
     <button

@@ -60,7 +60,6 @@ export class NewAccountComponent implements OnInit {
         this.router.navigate(['/']);
       },
       (error: any) => {
-        console.log(error);
         this.submitError = error.message;
       }
     );

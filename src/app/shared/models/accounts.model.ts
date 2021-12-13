@@ -3,6 +3,7 @@ export type Account = {
   name: string;
   routingNumber: string;
   accountNumber: string;
+  accountType: string;
   openDate: string;
   currentBalance: string;
   dateOfBirth: string;

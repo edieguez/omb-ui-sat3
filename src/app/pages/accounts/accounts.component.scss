@@ -53,6 +53,11 @@ table tr:last-child td {
   border-bottom: 0 solid;
 }
 
+.mat-row:hover .mat-cell {
+  border-color: currentColor;
+  cursor: pointer;
+}
+
 .description {
   margin-top: 0;
 }

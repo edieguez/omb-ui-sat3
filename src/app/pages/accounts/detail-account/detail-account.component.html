@@ -1,0 +1,44 @@
+<div class="content" *ngIf="!!account; else elseImage">
+  <h1 class="account-title animate__animated animate__fadeInUp">
+    {{ account?.name }}
+  </h1>
+  <p class="account-number animate__animated animate__fadeInUp">
+    $ {{ account?.currentBalance }}
+  </p>
+
+  <p class="account-subtitle animate__animated animate__fadeIn">
+    BASIC INFORMATION
+  </p>
+  <hr class="animate__animated animate__fadeIn" />
+
+  <div class="information-container animate__animated animate__fadeInLeft">
+    <div class="labels-container">
+      <span class="account-label">Account id:</span>
+      <span class="account-label">Account type:</span>
+      <span class="account-label">Account number:</span>
+      <span class="account-label">Date of birth:</span>
+      <span class="account-label">Routing number:</span>
+      <span class="account-label">Open date:</span>
+    </div>
+    <div class="labels-container">
+      <span>{{ account?.id }}</span>
+      <span>{{ account?.accountType }}</span>
+      <span>{{ account?.accountNumber }}</span>
+      <span>{{ account?.dateOfBirth }}</span>
+      <span>{{ account?.routingNumber }}</span>
+      <span>{{ account?.openDate }}</span>
+    </div>
+  </div>
+  <button mat-raised-button (click)="onGoBack()">Go home</button>
+</div>
+
+<ng-template #elseImage>
+  <div class="image-content">
+    <img
+      src="assets/img/account-not-found.png"
+      alt="Not found account"
+      class="image-responsive"
+    />
+    <span class="no-account-text">Account not found</span>
+  </div>
+</ng-template>

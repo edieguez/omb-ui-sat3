@@ -21,6 +21,7 @@ import { DepositComponent } from './deposit/deposit.component';
 import { TopBarComponent } from './shared/components/top-bar/top-bar.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { NewAccountComponent } from './pages/accounts/new-account/new-account.component';
+import { DetailAccountComponent } from './pages/accounts/detail-account/detail-account.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NewAccountComponent } from './pages/accounts/new-account/new-account.co
     DepositComponent,
     NotFoundComponent,
     NewAccountComponent,
+    DetailAccountComponent,
   ],
   imports: [
     BrowserModule,
