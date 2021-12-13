@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { WithDrawRequest } from '@app/shared/models/withdraw-request';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import { Account } from '@app//shared/models/accounts.model';
 import { environment } from '../../../../environments/environment';
-import { Account } from '../../../shared/models/accounts.model';
 
 @Injectable({ providedIn: 'root' })
 export class AccountsService {
@@ -37,5 +38,15 @@ export class AccountsService {
           return res.data ? res.data : null;
         })
       );
+  }
+
+  putWithDrawal(
+    id: string | null,
+    withdrawal: WithDrawRequest
+  ): Observable<Account | null> {
+    return this.http.put<Account | null>(
+      `${this.outerUrl}/accounts/${id}/withdrawal`,
+      withdrawal
+    );
   }
 }

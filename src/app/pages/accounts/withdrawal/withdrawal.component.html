@@ -1,0 +1,48 @@
+<div class="container">
+  <mat-card class="card-width animate__animated animate__fadeInDown">
+    <h2>ATM</h2>
+    <p>Funds: ${{ withdrawalForm?.value?.account?.currentBalance || 0 }}</p>
+    <form class="form" [formGroup]="withdrawalForm" (submit)="onSubmit()">
+      <mat-form-field class="input" appearance="fill">
+        <mat-label>Select an account</mat-label>
+        <mat-select formControlName="account">
+          <mat-option *ngFor="let account of accounts" [value]="account">
+            {{ account.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="input" appearance="fill">
+        <mat-label for="amount">Amount</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Amount"
+          formControlName="amount"
+        />
+      </mat-form-field>
+
+      <div
+        *ngIf="errorText"
+        class="animate__animated animate__zoomIn error-message-card"
+      >
+        {{ errorText }}
+      </div>
+
+      <div
+        *ngIf="successText"
+        class="animate__animated animate__zoomIn success-message-card"
+      >
+        {{ successText }}
+      </div>
+
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="withdrawalForm.invalid"
+      >
+        Withdraw funds
+      </button>
+    </form>
+  </mat-card>
+</div>

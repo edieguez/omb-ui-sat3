@@ -18,4 +18,8 @@ export class TopBarComponent implements OnInit {
   onAccounts() {
     this.router.navigate(['/']);
   }
+
+  onWithdraw() {
+    this.router.navigate(['/accounts/withdraw']);
+  }
 }

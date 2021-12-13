@@ -22,6 +22,7 @@ import { TopBarComponent } from './shared/components/top-bar/top-bar.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { NewAccountComponent } from './pages/accounts/new-account/new-account.component';
 import { DetailAccountComponent } from './pages/accounts/detail-account/detail-account.component';
+import { WithdrawalComponent } from './pages/accounts/withdrawal/withdrawal.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { DetailAccountComponent } from './pages/accounts/detail-account/detail-a
     NotFoundComponent,
     NewAccountComponent,
     DetailAccountComponent,
+    WithdrawalComponent,
   ],
   imports: [
     BrowserModule,
