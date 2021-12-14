@@ -64,7 +64,7 @@ table tr:last-child td {
 
 @media (max-width: 700px) {
   .inner {
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 3rem;
   }
 }

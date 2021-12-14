@@ -1,4 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Router } from '@angular/router';
 
 import { DetailAccountComponent } from './detail-account.component';
 
@@ -8,9 +11,9 @@ describe('DetailAccountComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DetailAccountComponent ]
-    })
-    .compileComponents();
+      declarations: [DetailAccountComponent],
+      imports: [HttpClientTestingModule, RouterTestingModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +24,9 @@ describe('DetailAccountComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should execute onGoBack and execute navigate function', () => {
+    component.onGoBack();
   });
 });

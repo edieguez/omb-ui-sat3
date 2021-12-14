@@ -27,7 +27,6 @@ export class AccountsComponent implements OnInit {
 
   onClickRow(row: Account) {
     this.account = row;
-    console.log(row);
     this.router.navigate([`/accounts/detail/${row.id}`]);
   }
 }

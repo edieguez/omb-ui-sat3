@@ -13,9 +13,6 @@ export class DepositService {
   }
 
   deposit(accountId: string, amount: number): Observable<boolean> {
-    console.log(
-      `depositing ${amount} dollars in account with ID '${accountId}'`
-    );
     return this.http.post<boolean>(
       `${this.outerUrl}/accounts/${accountId}/deposit`,
       { amount }

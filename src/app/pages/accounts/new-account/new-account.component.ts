@@ -41,7 +41,6 @@ export class NewAccountComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // TODO: agregar el void en las funciones que veas
   onSubmit(): void {
     if (this.accountForm.invalid) {
       return;
@@ -65,7 +64,7 @@ export class NewAccountComponent implements OnInit {
     );
   }
 
-  onCancel() {
+  onCancel(): void {
     this.router.navigate(['/']);
   }
 }

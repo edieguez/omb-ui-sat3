@@ -5,6 +5,6 @@ export type Account = {
   accountNumber: string;
   accountType: string;
   openDate: string;
-  currentBalance: string;
+  currentBalance: number;
   dateOfBirth: string;
 };
